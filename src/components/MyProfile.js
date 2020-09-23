@@ -25,7 +25,7 @@ class MyProfile extends Component {
   render() {
     return (
       <div className="profile">
-        <h1>My Profile</h1>
+        <h2>My Profile</h2>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
           <input type="text" 
@@ -48,13 +48,18 @@ class MyProfile extends Component {
           onChange={(e) => this.handleInput(e, "description")}>
           </textarea>
 
-          <input type="checkbox"
-          name="confirm"
-          id="confirm"
-          onChange={(e) => this.handleInput(e, "check")}/>
-          <label htmlFor="confirm">I have read the terms of conduct</label>
+          <div className="agree">
+            <input className="checkbox"
+            type="checkbox"
+            name="confirm"
+            id="confirm"
+            onChange={(e) => this.handleInput(e, "check")}/>
+            <label className="mess" htmlFor="confirm">I have read the terms of conduct</label>
+          </div>
+          
 
-          <input
+          <input 
+          className="submit"
           disabled={!this.state.name || !this.state.description || !this.state.check}
           type="submit"
           value="Submit"
